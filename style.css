@@ -1,0 +1,112 @@
+:root {
+  --almost-white: hsl(0, 0%, 98%);
+  --medium-gray:  hsl(0, 0%, 41%);
+  --almost-black: hsl(0, 0%, 8%);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+html {
+  font-size: 18px;
+}
+
+body {
+  /* max-height: 100vh; */
+  font-family: 'Epilogue';
+  background-color: var(--almost-white);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 1rem 0;
+}
+
+h1 {
+  font-size: clamp(1.6rem, 5vw, 2.5rem);
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--almost-black);
+}
+
+img {
+  max-inline-size: 100%;
+  align-self: center;
+}
+
+.menu-container,
+.burger-modal {
+  display: none;
+}
+
+.inner-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.image-container {
+  background: url(images/image-hero-mobile.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  aspect-ratio: 1;
+  order: 1;
+}
+
+.text-container {
+  order: 2;
+  padding: 0 0.4rem;     /* clamp? */
+}
+
+.text-container p {
+  font-size: clamp(0.77rem, 4vw, 2rem);
+  text-align: center;
+  line-height: 1.6;
+  color: var(--medium-gray);
+  font-weight: 600;
+}
+
+.learn-btn-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+}
+
+.learn-button {
+  padding: 0.7rem 1rem;      /* clamp? */
+  font-family: inherit;
+  border-radius: 10px;
+  border: none;
+  background-color: var(--almost-black);
+  color: var(--almost-white);
+  font-weight: 600;
+  transition: .2s ease-in-out;
+}
+
+.learn-button:hover {
+  cursor: pointer;
+  background-color: transparent;
+  outline: 2px solid var(--almost-black);
+  color: var(--almost-black);
+  font-weight: 700;
+}
+
+.clients {
+  display: flex;
+  justify-content: space-between;
+  padding: 3rem 0.5rem;
+}
+
+.client {
+  inline-size: clamp(20%, 5vw, 100%);
+}
+
+@media screen and (min-width: 800px) {
+  /*  */
+}
