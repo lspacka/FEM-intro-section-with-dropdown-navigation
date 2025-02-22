@@ -1,3 +1,8 @@
+/* 
+  TODO:
+    - fix tablet layout
+*/
+
 :root {
   --almost-white: hsl(0, 0%, 98%);
   --medium-gray:  hsl(0, 0%, 41%);
@@ -16,25 +21,30 @@ html {
 }
 
 body {
-  /* max-height: 100vh; */
+  min-height: 100vh;
   font-family: 'Epilogue';
   background-color: var(--almost-white);
 }
 
 header {
   display: flex;
-  justify-content: space-between;
-  padding: 2rem 1rem 0;
+  /* justify-content: space-between; */
+  padding: clamp(2rem, 5vw, 2rem) clamp(1rem, 5vw, 2.5rem) 0;
+}
+
+a {
+  text-decoration: none;
 }
 
 h1 {
-  font-size: clamp(1.6rem, 5vw, 2.5rem);
+  /* font-size: clamp(1.6rem, 5vw, 4.2rem); */
+  font-size: clamp(1.6rem, 5vw, 4.2rem);
   text-align: center;
   margin-bottom: 1rem;
   color: var(--almost-black);
 }
 
-img {
+img:not(.snap-logo img) {
   max-inline-size: 100%;
   align-self: center;
 }
@@ -42,6 +52,36 @@ img {
 .menu-container,
 .burger-modal {
   display: none;
+}
+
+.menu {
+  color: var(--medium-gray);
+  font-weight: 600;
+}
+
+.menu:hover {
+  cursor: pointer;
+}
+
+/* .menus, .signup {
+  height: fit-content;
+  align-self: center;
+} */
+
+.burger-menu {
+  margin-left: auto;
+}
+
+.burger-menu:hover {
+  cursor: pointer;
+}
+
+.register-link {
+  border: 2px solid var(--medium-gray);
+  width: 100%;
+  text-align: center;
+  border-radius: 15px;
+  padding: 1rem;
 }
 
 .inner-container {
@@ -58,13 +98,14 @@ img {
   order: 1;
 }
 
-.text-container {
+.big-text-container {
   order: 2;
-  padding: 0 0.4rem;     /* clamp? */
+  padding: 0 0.4rem;
+  /* padding: clamp(0rem, 5vw, 6rem) clamp(0.4rem, 5vw, 6rem); */
 }
 
 .text-container p {
-  font-size: clamp(0.77rem, 4vw, 2rem);
+  font-size: clamp(0.77rem, 4vw, 1rem);
   text-align: center;
   line-height: 1.6;
   color: var(--medium-gray);
@@ -75,18 +116,19 @@ img {
   width: 100%;
   display: flex;
   justify-content: center;
-  padding-top: 1rem;
+  padding-top: clamp(1rem, 5vw, 3rem);
 }
 
 .learn-button {
-  padding: 0.7rem 1rem;      /* clamp? */
+  padding: clamp(0.8rem, 4vw, 1rem) clamp(1.4rem, 5vw, 2.2rem);
   font-family: inherit;
-  border-radius: 10px;
+  border-radius: 12px;
   border: none;
   background-color: var(--almost-black);
   color: var(--almost-white);
   font-weight: 600;
   transition: .2s ease-in-out;
+  font-size: clamp(0.6rem, 4vw, 0.9rem);
 }
 
 .learn-button:hover {
@@ -99,7 +141,8 @@ img {
 
 .clients {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: clamp(1.1rem, 4vw, 3rem);
   padding: 3rem 0.5rem;
 }
 
@@ -107,6 +150,93 @@ img {
   inline-size: clamp(20%, 5vw, 100%);
 }
 
-@media screen and (min-width: 800px) {
-  /*  */
+@media screen and (min-width: 900px) {
+  header {
+    justify-content: first baseline;
+    /* gap: 1rem; */
+  }
+  /* .snap-logo {
+    display: flex;
+    align-items: flex-end;
+  } */
+  .snap-logo img {
+    inline-size: 130%;
+  }
+  .menu-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+  }
+  .menus {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .menu {
+    font-size: .9rem;
+    transform: translateY(10%);
+  }
+  .register-link {
+    transform: translateY(-25%);
+  }
+  .burger-menu {
+    display: none;
+  }
+  .signup {
+    display: flex;
+    margin-left: auto;
+    gap: 3rem;
+  }
+  .inner-container {
+    /* flex-direction: row; */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .big-text-container {
+    display: flex;
+    padding: 6rem 0 0 10rem;
+    /* width: 800px; */
+  }
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    order: 1;
+    padding: 0;
+    place-content: center;
+    /* padding: 12rem; */
+  }
+  h1 {
+    /* width: 500px; */
+    width: 500px;
+    line-break:strict;
+  }
+  h1, .text-container p {
+    text-align: left;
+    text-wrap: wrap;
+  }
+  .text-container p {
+    width: 475px;
+  }
+  .learn-btn-container {
+    justify-content: left;
+  }
+  .image-container {
+    order: 2;
+    background: url(images/image-hero-desktop.png);
+    background-size: contain;
+    aspect-ratio: 1;
+    background-repeat: no-repeat;
+    width: 50%;
+    /* padding-right: 5rem; */
+    inline-size: 80%;
+    margin-top: 1.5rem;
+    margin-left: auto;
+  }
+  .clients {
+    padding: 0;
+    margin-top: auto;
+    align-items: end;
+  }
+  /* .client {
+    align-self: flex-end;
+  } */
 }
