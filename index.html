@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
     <title>Frontend Mentor | Intro section with dropdown navigation</title>
   </head>
   <body>
@@ -19,6 +20,9 @@
             <img src="images/logo.svg" alt="snap logo">
           </div>
           <div class="menu-container">
+            <div class="close-menu">
+              <img src="images/icon-close-menu.svg" alt="close window icon">
+            </div>
             <div class="menus">
               <div class="menu dropdown">Features</div>
               <div class="menu dropdown">Company</div>
@@ -66,9 +70,10 @@
         </div>
       </div>
     </main>
-    <dialog class="burger-modal">
+    <div class="overlay"></div>
+    <!-- <dialog class="burger-modal">
       <!--  -->
-    </dialog>
+    </dialog> -->
   </body>
 </html>
 
