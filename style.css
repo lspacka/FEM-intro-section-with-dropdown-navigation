@@ -1,6 +1,7 @@
 /* 
   TODO:
     - fix tablet layout
+    - fix menus spacing
 */
 
 :root {
@@ -51,6 +52,7 @@ img:not(.snap-logo img) {
 
 .close-menu {
   width: fit-content;
+  margin-left: auto;
 }
 
 .close-menu:hover {
@@ -61,8 +63,11 @@ img:not(.snap-logo img) {
   display: none;
 }
 
+/* BURGER MENU */
+
 .menu-container.active,
-.menu-container.active .signup {
+.menu-container.active .signup,
+.menus {
   display: flex;
   flex-direction: column;
 }
@@ -70,31 +75,39 @@ img:not(.snap-logo img) {
 .menu-container.active {
   z-index: 2;
   background-color: var(--almost-white);
+  width: 70%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 30%;
+  padding: 1.5rem;
+  gap: 4rem;
 }
 
 .menu-container.active .burger-img {
   display: none;
 }
 
-/* .menu-container.active .signup {
-  display: flex;
-  flex-direction: column;
-} */
-
 .menu {
   color: var(--medium-gray);
   font-weight: 600;
   width: fit-content;
+  /* height: fit-content; */
 }
 
 .menu:hover {
   cursor: pointer;
+  color: var(--almost-black)
 }
 
-/* .menus, .signup {
-  height: fit-content;
-  align-self: center;
-} */
+.menus, .signup {
+  gap: 2rem;
+}
+
+.login-link {
+  width: 100%;
+  text-align: center;
+}
 
 .burger-menu {
   margin-left: auto;
@@ -110,6 +123,12 @@ img:not(.snap-logo img) {
   text-align: center;
   border-radius: 15px;
   padding: 1rem;
+  transition: .2s ease-in-out;
+}
+
+.register-link:hover {
+  color: var(--almost-black);
+  border-color: var(--almost-black);
 }
 
 .inner-container {
@@ -193,7 +212,7 @@ img:not(.snap-logo img) {
 @media screen and (min-width: 1200px) {
   header {
     justify-content: first baseline;
-    /* gap: 1rem; */
+    gap: 5rem;         /* 1.3rem */
   }
   /* .snap-logo {
     display: flex;
@@ -208,15 +227,22 @@ img:not(.snap-logo img) {
     width: 100%;
   }
   .menus {
-    display: flex;
-    justify-content: space-evenly;
+    flex-direction: row;
+    /* justify-content: space-evenly; */
+    gap: 4rem;
+    /* margin-left: auto; */
   }
   .menu {
     font-size: .9rem;
-    transform: translateY(10%);
+    transform: translateY(35%);
+    width: fit-content;
+    height: fit-content;
   }
   .register-link {
     transform: translateY(-25%);
+    margin-left: auto;
+    padding: 0.7rem 1.3rem;
+    /* width: 100%; */
   }
   .close-menu {
     display: none;
@@ -225,9 +251,12 @@ img:not(.snap-logo img) {
     display: none;
   }
   .signup {
-    display: flex;
+    /* display: flex;
+    flex-direction: row; */
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
     margin-left: auto;
-    gap: 3rem;
+    /* gap: 2rem; */
   }
   .inner-container {
     /* flex-direction: row; */
