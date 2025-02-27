@@ -1,5 +1,8 @@
 const burger = document.querySelector('.burger-img')
 const menus = document.querySelector('.menu-container')
+// const features = document.querySelector('.features')
+// const company = document.querySelector('.company')
+const dropdowns = document.querySelectorAll('.dropdown')        // TEST
 const close_menu = document.querySelector('.close-menu')
 const login = document.querySelector('.login-link')
 const register = document.querySelector('.register-link')
@@ -27,5 +30,25 @@ close_modal.forEach(el => {
     el.addEventListener('click', () => {
         menus.classList.remove('active')
         overlay.style.display = 'none'
+    })
+})
+
+// dropdown menus
+
+dropdowns.forEach((item, index) => {
+    let active = false
+    let menu = document.getElementById(item.classList[2])
+
+    item.addEventListener('click', () => {
+        let arrow_img = item.firstElementChild
+        active = !active
+
+        if (active) {
+            arrow_img.src = 'images/icon-arrow-up.svg'
+            menu.style.display = 'flex'
+        } else {
+            arrow_img.src = 'images/icon-arrow-down.svg'
+            menu.style.display = 'none'
+        }
     })
 })
