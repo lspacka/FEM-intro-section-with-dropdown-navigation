@@ -29,7 +29,6 @@ body {
 
 header {
   display: flex;
-  /* justify-content: space-between; */
   padding: clamp(2rem, 5vw, 2rem) clamp(1rem, 5vw, 2.5rem) 0;
 }
 
@@ -38,7 +37,6 @@ a {
 }
 
 h1 {
-  /* font-size: clamp(1.6rem, 5vw, 4.2rem); */
   font-size: clamp(1.6rem, 5vw, 4.2rem);
   text-align: center;
   margin-bottom: 1rem;
@@ -76,7 +74,7 @@ img:not(.snap-logo img) {
   z-index: 2;
   background-color: var(--almost-white);
   width: 70%;
-  height: 100%;
+  min-height: 100vh;
   position: absolute;
   top: 0;
   left: 30%;
@@ -112,11 +110,8 @@ img:not(.snap-logo img) {
 .menu-text {
   display: flex;
   gap: 0.5rem;
+  transition: .2s ease;
 }
-
-/* .arrow {
-  padding-left: 0.5rem;
-} */
 
 .dropdown:hover .arrow {
   filter: 
@@ -143,7 +138,6 @@ img:not(.snap-logo img) {
 
 .feature {
   display: flex;
-  /* justify-content: space-between; */
   gap: 1rem;
 }
 
@@ -191,7 +185,6 @@ img:not(.snap-logo img) {
 .big-text-container {
   order: 2;
   padding: 0 0.4rem;
-  /* padding: clamp(0rem, 5vw, 6rem) clamp(0.4rem, 5vw, 6rem); */
 }
 
 .text-container p {
@@ -210,7 +203,6 @@ img:not(.snap-logo img) {
 }
 
 .learn-button {
-  /* padding: clamp(0.8rem, 4vw, 1rem) clamp(1.4rem, 5vw, 2.2rem); */
   padding: clamp(0.8rem, 4vw, 1rem) clamp(1.4rem, 5vw, 2rem);
   font-family: inherit;
   border-radius: 12px;
@@ -227,7 +219,6 @@ img:not(.snap-logo img) {
   background-color: transparent;
   outline: 2px solid var(--almost-black);
   color: var(--almost-black);
-  /* font-weight: 700; */
 }
 
 .clients {
@@ -257,10 +248,6 @@ img:not(.snap-logo img) {
     justify-content: first baseline;
     gap: 4.5rem;         /* 1.3rem */
   }
-  /* .snap-logo {
-    display: flex;
-    align-items: flex-end;
-  } */
   .snap-logo img {
     inline-size: 130%;
   }
@@ -271,9 +258,7 @@ img:not(.snap-logo img) {
   }
   .menus {
     flex-direction: row;
-    /* justify-content: space-evenly; */
     gap: 2.5rem;
-    /* margin-left: auto; */
   }
   .menu {
     font-size: .9rem;
@@ -290,6 +275,7 @@ img:not(.snap-logo img) {
     border-radius: 7px;
     width: 150%;
     box-shadow: 0px 10px 30px hsla(234, 8%, 47%, 0.16);   /* hsla(233, 36%, 44%, 0.267) */
+    overflow: hidden;
   }
   #features {
     left: -50%;
@@ -300,7 +286,6 @@ img:not(.snap-logo img) {
   }
   .feature {
     gap: 0.6rem;
-    /* align-items: center; */
   }
   .feature, .company-info {
     font-size: 0.7rem;
@@ -308,7 +293,6 @@ img:not(.snap-logo img) {
   }
   .feature img {
     inline-size: 13.5%;
-    /* align-self: self-end; */
   }
   .feature p {
     align-self: flex-end;
@@ -317,7 +301,6 @@ img:not(.snap-logo img) {
     transform: translateY(-25%);
     margin-left: auto;
     padding: 0.7rem 1.3rem;
-    /* width: 100%; */
   }
   .close-menu {
     display: none;
@@ -326,23 +309,17 @@ img:not(.snap-logo img) {
     display: none;
   }
   .signup {
-    /* display: flex;
-    flex-direction: row; */
     display: grid;
     grid-template-columns: 0.5fr 1fr;
     margin-left: auto;
-    /* gap: 2rem; */
   }
   .inner-container {
-    /* flex-direction: row; */
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
   .big-text-container {
     display: flex;
     padding: 6rem 0 0 10rem;
-    /* padding: 6rem 0 0 clamp(1rem, 5vw, 10rem); */
-    /* width: 800px; */
   }
   .text-container {
     display: flex;
@@ -350,13 +327,10 @@ img:not(.snap-logo img) {
     order: 1;
     padding: 0;
     place-content: center;
-    /* padding: 12rem; */
   }
   h1 {
-    /* width: 500px; */
     width: 500px;
     margin-bottom: 2rem;
-    /* line-break:strict; */
   }
   h1, .text-container p {
     text-align: left;
@@ -375,7 +349,6 @@ img:not(.snap-logo img) {
     aspect-ratio: 1;
     background-repeat: no-repeat;
     width: 50%;
-    /* padding-right: 5rem; */
     inline-size: 80%;
     margin-top: 1.5rem;
     margin-left: auto;
@@ -384,9 +357,49 @@ img:not(.snap-logo img) {
     padding: 0;
     margin-top: auto;
     align-items: end;
-    /* padding: 3rem 0; */
   }
-  /* .client {
-    align-self: flex-end;
-  } */
+}
+
+@keyframes dropdown1 {
+  0% {
+    padding: 0 1.2rem 0 1rem;
+    height: 0%;
+  }
+  100% {
+    padding: 1rem 1.2rem 1rem 1rem;
+    height: fit-content;     /* 137px */
+  }
+}
+
+@keyframes dropdown2 {
+  0% {
+    padding: 0 1rem ;
+    height: 0%;
+  }
+  100% {
+    padding: 1rem;
+    height: fit-content;  /* 94px */
+  }
+}
+
+@keyframes dropup1 {
+  0% {
+    padding: 1rem 1.2rem 1rem 1rem;
+    height: fit-content;
+  }
+  100% {
+    padding: 0 1.2rem 0 1rem;
+    height: 0%;    
+  }
+}
+
+@keyframes dropup2 {
+  0% {
+    padding: 1rem 1rem 1rem 1rem;
+    height: fit-content;
+  }
+  100% {
+    padding: 0 1rem 0 1rem;
+    height: 0%;    
+  }
 }

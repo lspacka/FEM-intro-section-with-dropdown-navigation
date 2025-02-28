@@ -43,9 +43,33 @@ dropdowns.forEach(item => {
         if (active) {
             arrow_img.src = 'images/icon-arrow-up.svg'
             menu.style.display = 'flex'
+
+            // ensuring the animations only work on desktop
+            if (media_query.matches) {
+                if (menu.id == 'features')
+                    menu.style.animation = 'dropdown1 ease .25s forwards'
+                else
+                    menu.style.animation = 'dropdown2 ease .25s forwards'
+            } else {
+                menu.style.animation = 'none'
+            }
         } else {
             arrow_img.src = 'images/icon-arrow-down.svg'
-            menu.style.display = 'none'
+
+            if (media_query.matches) {
+                if (menu.id == 'features')
+                    menu.style.animation = 'dropup1 ease .25s'
+                else
+                    menu.style.animation = 'dropup2 ease .25s'    
+            } else {
+                menu.style.animation = 'none'
+                menu.style.display = 'none'
+            }
+
+            menu.addEventListener('animationend', () => {
+                if (!active)
+                    menu.style.display = 'none'
+            })
         }
     })
 })

@@ -14,8 +14,8 @@ Users should be able to:
 
 ### Links
 
-- [Solution](https://your-solution-url.com)
-- [Live Site](https://your-live-site-url.com)
+- [Solution](https://www.frontendmentor.io/solutions/intro-section-with-dropdown-navigation-bJ4E7xnhSB)
+- [Live Site](https://lspacka.github.io/FEM-intro-section-with-dropdown-navigation/)
 
 ### Built with
 
